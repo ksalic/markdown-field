@@ -14,7 +14,7 @@ class App extends Component {
 
         this.ui = props.ui;
 
-        this.state = {text: '', mode: 'view', html: ''};
+        this.state = {text: '', mode: 'edit', html: ''};
     }
 
     componentDidMount() {
@@ -74,7 +74,7 @@ class App extends Component {
                             this.ui.document.field.setValue(event.target.value);
                         }
                     })
-                }} minRows={5} style={{width: '100%',}}/>
+                }} minRows={5} maxRows={5} style={{width: '100%',}}/>
                     <div className="stackedit-button-wrapper">
                         <Link style={{cursor: "pointer"}} onClick={(e) => {
                             this.openDialog();
