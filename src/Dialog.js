@@ -14,23 +14,29 @@ class Dialog extends Component {
         this.ui = props.ui;
 
         this.state = {
-            text: ''
+            text: 'intial text.. hello markdowner'
         }
-
-
     }
 
     componentDidMount() {
-        this.setInitial(this.ui).then(text => this.setState({text: text})).then(value => {
+        this.setInitial(this.ui).then(text => this.setState({text: text}, () => {
             stackedit.openFile({
-                name: 'Filename',
-                content: {text: this.state.text}
-            }, true /* silent mode */);
-            stackedit.on('fileChange', (file) => {
-                this.setState({text: file.content.text})
-                ;
+                name: 'Filename', // with an optional filename
+                content: {
+                    text: this.state.text // and the Markdown content.
+                }
             });
-        });
+            stackedit.on('fileChange', (file) => {
+                console.log('change..... ', file.content.text);
+                this.setState({text: file.content.text, html: file.content.html})
+            });
+
+            stackedit.on('close', () => {
+                console.log('close..... ');
+                this.ui.dialog.close(this.state.text);
+            });
+        }))
+
     }
 
     async setInitial(ui) {
@@ -42,14 +48,15 @@ class Dialog extends Component {
             console.error('Failed to register extension:', error.message);
             console.error('- error code:', error.code);
         }
-        return '';
+        return 'error retrieving value, but all is good...';
     }
 
 
     render() {
+        const {html} = this.state;
         return (
             <>
-                <h1>dialog</h1>
+                <div dangerouslySetInnerHTML={{__html: html}}/>
             </>
         );
     }
