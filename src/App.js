@@ -47,7 +47,7 @@ class App extends Component {
             this.dialogOptions = {
                 title: 'Markdown Editor',
                 url: './dialog',
-                size: 'large',
+                size: 'medium',
                 value: this.state.text
             };
 
