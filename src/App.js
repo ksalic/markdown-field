@@ -1,8 +1,8 @@
 import {Link, TextareaAutosize} from "@mui/material";
-// import Stackedit from 'stackedit-js';
+import Stackedit from 'stackedit-js';
 import {Component} from "react";
 
-// const stackedit = new Stackedit();
+const stackedit = new Stackedit();
 
 class App extends Component {
 
@@ -14,11 +14,20 @@ class App extends Component {
 
         this.ui = props.ui;
 
-        this.state = {text: '', mode: 'view'};
+        this.state = {text: '', mode: 'view', html: ''};
     }
 
     componentDidMount() {
-        this.getInitialState(this.ui).then(state => this.setState(state));
+        this.getInitialState(this.ui).then(state => this.setState(state, () => {
+            stackedit.openFile({
+                name: 'Filename',
+                content: {text: this.state.text}
+            }, true /* silent mode */);
+            stackedit.on('fileChange', (file) => {
+                this.setState({html: file.content.html});
+            });
+        }));
+
     }
 
     async getInitialState(ui) {
@@ -55,7 +64,7 @@ class App extends Component {
     }
 
     render() {
-        const {text, mode} = this.state;
+        const {text, html, mode} = this.state;
         console.log(mode);
         return (
             <>
@@ -75,7 +84,7 @@ class App extends Component {
                         </Link>
                     </div>
                 </>}
-                {mode !== 'edit' && <span>{text}</span>}
+                {mode !== 'edit' && <span>{html}</span>}
             </>
         );
     }
