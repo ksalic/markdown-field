@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         render(
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<App/>}/>
-                    <Route path="/dialog" element={<Dialog/>}/>
+                    <Route path="/" element={<App mode={'openUi'} ui={ui}/>}/>
+                    <Route path="/dialog" element={<Dialog mode={'openUi'} ui={ui}/>}/>
                 </Routes>
             </BrowserRouter>,
             rootElement
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         render(
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<App/>}/>
-                    <Route path="/dialog" element={<Dialog/>}/>
+                    <Route path="/" element={<App mode={'fallback'} />}/>
+                    <Route path="/dialog" element={<Dialog mode={'fallback'} />}/>
                 </Routes>
             </BrowserRouter>,
             rootElement
