@@ -84,7 +84,7 @@ class App extends Component {
                         </Link>
                     </div>
                 </>}
-                {mode !== 'edit' && <span>{html}</span>}
+                {mode !== 'edit' && <div dangerouslySetInnerHTML={{__html: html}}/>}
             </>
         );
     }
