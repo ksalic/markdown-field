@@ -1,10 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UiExtension from "@bloomreach/ui-extension";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Dialog from "./Dialog";
+
+const rootElement = document.getElementById("root");
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -12,30 +14,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         console.log('ui..', ui);
 
-        const routing = (
+        render(
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App/>}/>
                     <Route path="/dialog" element={<Dialog/>}/>
                 </Routes>
-            </BrowserRouter>
+            </BrowserRouter>,
+            rootElement
         );
 
-        ReactDOM.render(routing, document.getElementById("root"));
     } catch (error) {
         console.log(error);
         console.error('Failed to register extension:', error.message);
         console.error('- error code:', error.code);
-        const routing = (
+        render(
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<App/>}/>
                     <Route path="/dialog" element={<Dialog/>}/>
                 </Routes>
-            </BrowserRouter>
+            </BrowserRouter>,
+            rootElement
         );
-
-        ReactDOM.render(routing, document.getElementById('root'));
     }
 });
 
