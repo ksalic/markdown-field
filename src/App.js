@@ -65,7 +65,7 @@ class App extends Component {
                             this.ui.document.field.setValue(event.target.value);
                         }
                     })
-                }} minRows={5} id={''} style={{width: '100%',}}/>
+                }} minRows={5}  style={{width: '100%',}}/>
                 <div className="stackedit-button-wrapper">
                     <span onClick={(e) => {
                         e.preventDefault();
