@@ -60,8 +60,11 @@ class App extends Component {
         return (
             <>
                 <TextareaAutosize value={text} onChange={event => {
-                    console.log(event);
-                    this.setState({text: event.target.value})
+                    this.setState({text: event.target.value}, () => {
+                        if (this.ui) {
+                            this.ui.document.field.setValue(event.target.value);
+                        }
+                    })
                 }} minRows={5} id={''} style={{width: '100%',}}/>
                 <div className="stackedit-button-wrapper">
                     <span onClick={(e) => {
