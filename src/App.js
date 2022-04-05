@@ -1,4 +1,4 @@
-import {TextareaAutosize} from "@mui/material";
+import {Link, TextareaAutosize} from "@mui/material";
 // import Stackedit from 'stackedit-js';
 import {Component} from "react";
 
@@ -67,13 +67,12 @@ class App extends Component {
                     })
                 }} minRows={5}  style={{width: '100%',}}/>
                 <div className="stackedit-button-wrapper">
-                    <span onClick={(e) => {
-                        e.preventDefault();
+                    <Link style={{cursor: "pointer"}} onClick={(e) => {
                         this.openDialog();
                     }}>
                         <img alt={'stackedit button to open editor'} src="/stackedit-logo.svg"/>Edit with
                         StackEdit
-                    </span>
+                    </Link>
                 </div>
             </>
         );
