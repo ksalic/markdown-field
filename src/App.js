@@ -10,6 +10,8 @@ class App extends Component {
     constructor(props) {
         super(props)
 
+        console.log('constructor', props)
+
         this.ui = props.ui;
 
         this.state = {text: '', mode: 'view'};

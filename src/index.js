@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const ui = await UiExtension.register();
 
+        console.log('ui..', ui);
+
         const routing = (
             <Router>
                 <Switch>
