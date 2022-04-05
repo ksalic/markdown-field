@@ -59,24 +59,27 @@ class App extends Component {
         console.log(mode);
         return (
             <>
-                <TextareaAutosize value={text} onChange={event => {
+                {mode === 'edit' && <><TextareaAutosize value={text} onChange={event => {
                     this.setState({text: event.target.value}, () => {
                         if (this.ui) {
                             this.ui.document.field.setValue(event.target.value);
                         }
                     })
-                }} minRows={5}  style={{width: '100%',}}/>
-                <div className="stackedit-button-wrapper">
-                    <Link style={{cursor: "pointer"}} onClick={(e) => {
-                        this.openDialog();
-                    }}>
-                        <img alt={'stackedit button to open editor'} src="/stackedit-logo.svg"/>Edit with
-                        StackEdit
-                    </Link>
-                </div>
+                }} minRows={5} style={{width: '100%',}}/>
+                    <div className="stackedit-button-wrapper">
+                        <Link style={{cursor: "pointer"}} onClick={(e) => {
+                            this.openDialog();
+                        }}>
+                            <img alt={'stackedit button to open editor'} src="/stackedit-logo.svg"/>Edit with
+                            StackEdit
+                        </Link>
+                    </div>
+                </>}
+                {mode !== 'edit' && <span>{text}</span>}
             </>
         );
     }
+
 }
 
 export default App;
