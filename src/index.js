@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import UiExtension from "@bloomreach/ui-extension";
 import {Route, Router} from "react-router-dom";
 import {Switch} from "@mui/material";
+import Dialog from "./Dialog";
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -15,14 +16,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         const routing = (
             <Router>
                 <Switch>
-                    {/*<Route path="/dialog" render={props => <ExtPickerDialog ui={ui}/>}/>*/}
-                    <Route exact path="/" render={props => <App ui={ui}/>}/>
+                    <Route path="/dialog" render={props => <App ui={ui}/>}/>
+                    <Route exact path="/" render={props => <Dialog ui={ui}/>}/>
                 </Switch>
             </Router>
         );
 
         ReactDOM.render(routing, document.getElementById("root"));
-
     } catch (error) {
         console.log(error);
         console.error('Failed to register extension:', error.message);
