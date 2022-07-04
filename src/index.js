@@ -11,9 +11,6 @@ const rootElement = document.getElementById("root");
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const ui = await UiExtension.register();
-
-        console.log('ui..', ui);
-
         render(
             <BrowserRouter>
                 <Routes>

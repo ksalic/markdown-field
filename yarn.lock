@@ -1069,10 +1069,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bloomreach/ui-extension@^0.1.0-saas":
-  version "0.1.0-saas"
-  resolved "https://registry.yarnpkg.com/@bloomreach/ui-extension/-/ui-extension-0.1.0-saas.tgz#e931df237c2d3e53db569fd0247bf6446267f16f"
-  integrity sha512-O0hpnE+Xw/KBWIbd0dHw7a2X+bUjFj63BMeNSboLMnsp9kV4YyaQ64pV9IHvH+8Tmf0Ta6YTPh0RcVidGm7JdQ==
+"@bloomreach/ui-extension@^15.1.0":
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/@bloomreach/ui-extension/-/ui-extension-15.1.0.tgz#77200dc68749912789869c0895a1f5d56b4a1974"
+  integrity sha512-ws0k9ZUfc5wg7C24ycXfJOj67y/SJC1L6WQYtNSsdgVBPHdjGlvUd6QbL3vGLEZulvnG2B8Ld+IeT4rX+1YZFw==
   dependencies:
     emittery "^0.6"
     penpal "^4.1"

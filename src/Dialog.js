@@ -8,13 +8,10 @@ class Dialog extends Component {
 
     constructor(props) {
         super(props)
-
-        console.log('constructor', props)
-
         this.ui = props.ui;
 
         this.state = {
-            text: 'intial text.. hello markdowner'
+            text: 'hello markdown editor'
         }
     }
 
@@ -27,12 +24,10 @@ class Dialog extends Component {
                 }
             });
             stackedit.on('fileChange', (file) => {
-                console.log('change..... ', file.content.text);
                 this.setState({text: file.content.text, html: file.content.html})
             });
 
             stackedit.on('close', () => {
-                console.log('close..... ');
                 this.ui.dialog.close(this.state.text);
             });
         }))
